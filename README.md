@@ -5,7 +5,7 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 <p align="center">
   <img src="img/tree-ex.jpg" width=600 height=300>
 </p>
-
+###### Figure 1: An example parse tree from the Switchboardcorpus –We don’t uh I mean a lot of states don’t havecapital punishment,where reparandumWe don’t, filledpauseuhand discourse markerI meanare dominatedby EDITED, INTJ and PRN nodes.
 
 ## Contents
 1. [Requirements for Training](#requirement)
