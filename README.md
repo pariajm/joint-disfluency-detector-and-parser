@@ -24,26 +24,45 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 $ pip install cython numpy
 $ pip install benepar[cpu]
 $ python -m spacy download en
-$ cd EVALB
-$ make evalb
-$ cd ../data
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
-$ cd ..
 ```
 ### Usage
-1. Use our best model trained on the original Switchboard treebank to parse your own sentences:
+Use our model to parse and disfluency label your own sentences:
+1. Use our best model trained on the original Switchboard treebank:
 ```
-python3 src/parse.py --config best_model/best_nopunct_nopw_config.json --eval-path best_model/eval.txt >best_model/out_and_error.txt
+$ git clone https://github.com/pariajm/naacl2019
+$ cd naacl2019 && mkdir data
+$ cd data
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+$ cd ../best_models
+$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_nopunct_nopw_Edev=0.872.pt
+$ cd ..
+$ python3 src/parse.py --config best_models/best_nopunct_nopw_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
 ```
 
-2. Use our best model trained on the tree transformed Switchboard treebank to parse your own sentences:
+2. Use our best model trained on the tree transformed Switchboard treebank (recommended):
 ```
-python3 src/parse.py --config best_model/best_tree_transformation_config.json --eval-path best_model/eval.txt >best_model/out_and_error.txt
+$ git clone https://github.com/pariajm/naacl2019
+$ cd naacl2019 && mkdir data
+$ cd data
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+$ cd ../best_models
+$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_tree_transformation_Edev=0.8838.pt
+$ cd ..
+$ python3 src/parse.py --config best_models/best_tree_transformation_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
 ```
 ### Training Instructions
 ```
-python3 src/run_parser.py --config results/best_config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ git clone https://github.com/pariajm/naacl2019
+$ cd naacl2019/EVALB
+$ make evalb
+$ cd .. && mkdir data
+$ cd data
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
+$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+$ cd ..
+python3 src/train_parser.py --config results/best_nopunct_nopw_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 ### Citation
 If you use this model, please cite our paper:
