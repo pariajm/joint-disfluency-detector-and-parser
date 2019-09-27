@@ -1,31 +1,20 @@
 Disfluency Detection and Constituency Parsing
 ------------------------------------------------------------
-A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282). 
-
-
-## Contents
-1. [Task](#task)
-2. [Requirements for Training](#requirement)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Training Instructions](#training)
-6. [Citation](#citation)
-7. [Contact](#contact)
-8. [Credits](#credits)
-
-
-### Task
-Disfluencies include filled pauses (*um*, *uh*), parenthetical asides (*you know*, *I mean*), interjections (*well*, *like*) and partial words (*wou-*, *oper-*). One type of disfluency which is especially problematic for conventional syntactic parsers are speech repairs. A speech repair consists of three main parts; the *reparandum*, the *interregnum* and the *repair*. As illustrated in the following example, the reparandum *we don't* is the part of the utterance that is replaced or repaired, the interregnum *uh I mean* (which consists of a filled pause *uh* and a discourse marker *I mean*) is an optional part of the disfluency, and the repair *a lot of states don't* replaces the reparandum. The fluent version is obtained by removing the reparandum and the interregnum.
-
-<p align="center">
-  <img src="img/flat-ex.jpg" width=370 height=130>
-</p>
-
-In the Switchboard treebank corpus the *reparanda*, *filled pauses* and *discourse markers* are dominated by *EDITED*, *INTJ* and *PRN* nodes, respectively.
+<p align="justify">A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282).</p>
 
 <p align="center">
   <img src="img/tree-ex.jpg" width=600 height=300>
 </p>
+###### Figure 1: An example parse tree from the Switchboardcorpus –We don’t uh I mean a lot of states don’t havecapital punishment,where reparandumWe don’t, filledpauseuhand discourse markerI meanare dominatedby EDITED, INTJ and PRN nodes.
+
+## Contents
+1. [Requirements for Training](#requirement)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Training Instructions](#training)
+5. [Citation](#citation)
+6. [Contact](#contact)
+7. [Credits](#credits)
 
 
 ### Requirements for Training
@@ -53,8 +42,7 @@ $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cn
 $ cd ..
 ```
 ### Usage
-<div align="justify">Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. 
-  
+Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. 
 1. Use our best model trained on the original Switchboard treebank:
 ```
 $ cd best_models
