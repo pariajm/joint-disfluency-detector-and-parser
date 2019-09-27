@@ -34,7 +34,7 @@ $ cd .. && mkdir data
 $ cd data
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
-cd ..
+$ cd ..
 ```
 ### Usage
 Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. 
