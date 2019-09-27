@@ -1,7 +1,7 @@
 import json
 import argparse
 import numpy as np
-from main import run_test, make_hparams
+from main import run_parse, make_hparams
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str, help='path to the job dir')
@@ -24,7 +24,7 @@ def run_self_attentive_parser(run_config_filename, model_path=None, eval_out_pat
 
 	hparams = make_hparams()
 	hparams.set_from_args(args)
-	run_test(args)
+	run_parse(args)
 
 if __name__ == '__main__':
 	run_self_attentive_parser(args.config, args.model_path, args.eval_path)
