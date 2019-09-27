@@ -1,6 +1,6 @@
 Disfluency Detection and Constituency Parsing
 ------------------------------------------------------------
-A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282). 
+<p>A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282). </p>
 
 
 ## Contents
