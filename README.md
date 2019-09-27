@@ -7,6 +7,10 @@ Task
 ------------------------------------------------------------
 Disfluencies include filled pauses (*um*, *uh*), parenthetical asides (*you know*, *I mean*), interjections (*well*, *like*) and partial words (*wou-*, *oper-*). One type of disfluency which is especially problematic for conventional syntactic parsers are speech repairs. A speech repair consists of three main parts; the *reparandum*, the *interregnum* and the *repair*. As illustrated in the following example, the reparandum *we don't* is the part of the utterance that is replaced or repaired, the interregnum *uh I mean* (which consists of a filled pause *uh* and a discourse marker *I mean*) is an optional part of the disfluency, and the repair *a lot of states don't* replaces the reparandum. The fluent version is obtained by removing the reparandum and the interregnum.
 
+<p align="center">
+  <img src="img/flat-ex.jpg" width=600 height=300>
+</p>
+
 In the Switchboard treebank corpus the *reparanda*, *filled pauses* and *discourse markers* are dominated by *EDITED*, *INTJ* and *PRN* nodes, respectively.
 
 <p align="center">
