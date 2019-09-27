@@ -25,34 +25,7 @@ $ pip install cython numpy
 $ pip install benepar[cpu]
 $ python -m spacy download en
 ```
-### Usage
-Use our model to parse and disfluency label your own sentences:
-1. Use our best model trained on the original Switchboard treebank:
-```
-$ git clone https://github.com/pariajm/naacl2019
-$ cd naacl2019 && mkdir data
-$ cd data
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
-$ cd ../best_models
-$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_nopunct_nopw_Edev=0.872.pt
-$ cd ..
-$ python3 src/parse.py --config best_models/best_nopunct_nopw_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
-```
 
-2. Use our best model trained on the tree transformed Switchboard treebank (recommended):
-```
-$ git clone https://github.com/pariajm/naacl2019
-$ cd naacl2019 && mkdir data
-$ cd data
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
-$ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
-$ cd ../best_models
-$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_tree_transformation_Edev=0.8838.pt
-$ cd ..
-$ python3 src/parse.py --config best_models/best_tree_transformation_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
-```
-### Training Instructions
 ```
 $ git clone https://github.com/pariajm/naacl2019
 $ cd naacl2019/EVALB
@@ -61,7 +34,27 @@ $ cd .. && mkdir data
 $ cd data
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+cd ..
+```
+### Usage
+Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. 
+1. Use our best model trained on the original Switchboard treebank:
+```
+$ cd best_models
+$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_nopunct_nopw_Edev=0.872.pt
 $ cd ..
+$ python3 src/parse.py --config best_models/best_nopunct_nopw_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
+```
+
+2. Use our best model trained on the tree transformed Switchboard treebank (recommended):
+```
+$ cd best_models
+$ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_tree_transformation_Edev=0.8838.pt
+$ cd ..
+$ python3 src/parse.py --config best_models/best_tree_transformation_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
+```
+### Training Instructions
+```
 python3 src/train_parser.py --config results/best_nopunct_nopw_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 ### Citation
