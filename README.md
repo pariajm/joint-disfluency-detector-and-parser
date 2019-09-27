@@ -55,7 +55,7 @@ $ python3 src/parse.py --config best_models/best_tree_transformation_config.json
 ```
 ### Training Instructions
 ```
-python3 src/train_parser.py --config results/best_nopunct_nopw_config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ python3 src/train_parser.py --config results/best_nopunct_nopw_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 ### Citation
 If you use this model, please cite our paper:
