@@ -56,7 +56,7 @@ Use our model to parse and disfluency label your own sentences. Befor running th
 $ cd best_models
 $ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_nopunct_nopw_Edev=0.872.pt
 $ cd ..
-$ python3 src/parse.py --config best_models/best_nopunct_nopw_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
+$ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/best_nopunct_nopw_Edev=0.872.pt >best_models/out.log
 ```
 
 2. Use our best model trained on the tree transformed Switchboard treebank (recommended):
@@ -64,7 +64,7 @@ $ python3 src/parse.py --config best_models/best_nopunct_nopw_config.json --eval
 $ cd best_models
 $ wget https://cloudstor.aarnet.edu.au/plus/s/KW6ndLh8hfuilOg/download -O best_tree_transformation_Edev=0.8838.pt
 $ cd ..
-$ python3 src/parse.py --config best_models/best_tree_transformation_config.json --eval-path best_models/eval.txt >best_models/out_and_error.txt
+$ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/best_tree_transformation_Edev=0.8838.pt >best_models/out.log
 ```
 ### Training Instructions
 ```
