@@ -50,7 +50,7 @@ $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cn
 $ cd ..
 ```
 ### Usage
-Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. The format of input in raw_sentences.txt file is one sentence per line. For the best performance, remove punctuations and split the clitics ("I 'm" instead of "I'm").
+Use our model to parse and disfluency label your own sentences. Befor running the following commands, make sure you meet the requirements for training and installation. The format of the input in *raw_sentences.txt* is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm").
 
 1. Use our best model trained on the original Switchboard treebank:
 ```
