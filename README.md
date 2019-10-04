@@ -33,12 +33,6 @@ In the Switchboard treebank corpus the *reparanda*, *filled pauses* and *discour
 * [AllenNLP](http://allennlp.org/) 0.7.0 or any compatible version (only required when using ELMo word representations)
 
 ### Installation
-```bash
-$ pip install cython numpy
-$ pip install benepar[cpu]
-$ python -m spacy download en
-```
-
 ```
 $ git clone https://github.com/pariajm/naacl2019
 $ cd naacl2019/EVALB
