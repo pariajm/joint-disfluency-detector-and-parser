@@ -70,7 +70,7 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 ### Training Instructions
 A new model can be trained using the followng command:  
 ```
-$ python3 src/train_parser.py --config results/swbd_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ python3 src/train_parser.py --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
 ### Reproducing Experiments
