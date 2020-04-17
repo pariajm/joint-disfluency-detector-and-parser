@@ -6,7 +6,7 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 1. [Task](#task)
 2. [Requirements for Training](#requirement)
 3. [Preparation](#preparation)
-4. [Pre-trained Models (PyTorch)](#pre-trained-models-(pyTorch))
+4. [Pre-trained Models (PyTorch)](#pretrained-models-(pyTorch))
 5. [Using the Trained Models](#using-the-trained-models)
 6. [Training Instructions](#training-instructions)
 7. [Reproducing Experiments](#reproducing-experiments)
@@ -73,8 +73,8 @@ A new model can be trained using the followng command:
 $ python3 src/train_parser.py --config results/config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
-## Reproducing Experiments
-The code used for our NAACL 2019 paper is tagged `naacl2019` in git. The version of the code currently in this repository includes new features (e.g. BERT support and self-training),
+### Reproducing Experiments
+The code used for our NAACL 2019 paper is tagged `naacl2019` in git. The version of the code currently in this repository includes new features (e.g. BERT support and self-training).
 
 ### Citation
 If you use this model, please cite the following papers:
