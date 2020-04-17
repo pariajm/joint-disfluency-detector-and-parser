@@ -6,7 +6,7 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 1. [Task](#task)
 2. [Requirements for Training](#requirement)
 3. [Preparation](#preparation)
-4. [Pre-trained Models (PyTorch)](#pretrained-models-(pyTorch))
+4. [Pretrained Models (PyTorch)](#pretrained-models-(pyTorch))
 5. [Using the Trained Models](#using-the-trained-models)
 6. [Training Instructions](#training-instructions)
 7. [Reproducing Experiments](#reproducing-experiments)
@@ -50,7 +50,7 @@ $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cn
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
 $ cd ..
 ```
-### Pre-trained Models (PyTorch)
+### Pretrained Models (PyTorch)
 The following pre-trained models, which have been optimized for their performance on parsing EDITED nodes i.e. F(S_E) on the SWBD dev set, are available for download:
 * [`swbd_fisher_bert_Edev.0.9078.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt): Our best model self-trained on the Switchboard gold parse trees and Fisher silver parse trees with BERT-base-uncased word representations (EDITED word f-score=92.4%).
 * [`swbd_bert_Edev.0.8922.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_bert_Edev.0.8922.pt): Our best model trained on the Switchboard gold parse trees with BERT-base-uncased word representations (EDITED word f-score=90.9%).
