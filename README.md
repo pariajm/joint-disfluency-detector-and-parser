@@ -1,6 +1,6 @@
 Joint Disfluency Detection and Constituency Parsing
 ------------------------------------------------------------
-<div align="justify">A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019, with additional changes (e.g. self-training and ensembling) described in [Improving Disfluency Detection by Self-Training a Self-Attentive Model](https://arxiv.org/pdf/2004.05323.pdf).
+A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019.
 
 ## Contents
 1. [Task](#task)
@@ -13,13 +13,13 @@ Joint Disfluency Detection and Constituency Parsing
 8. [Credits](#credits)
 
 ### Task
-<div align="justify">Disfluency refers to any interruptions in the normal flow of speech, including filled pauses (*um*, *uh*), repetitions (*they're ... they're here*), corrections (*to Sydney ... no to Melbourne*), false starts (*we would like ... let's go*), parenthetical asides (_you know_, *I mean*), partial words (*wou-*, *oper-*) and interjections (*well*, *like*). One type of disfluency which is especially problematic for conventional syntactic parsers are speech repairs. A speech repair consists of three main parts; the *reparandum*, the *interregnum* and the *repair*. As illustrated in the example below, the reparandum *we don't* is the part of the utterance that is replaced or repaired, the interregnum *uh I mean* (which consists of a filled pause *uh* and a discourse marker *I mean*) is an optional part of the disfluency, and the repair *a lot of states don't* replaces the reparandum. The fluent version is obtained by removing the reparandum and the interregnum.
+Disfluency refers to any interruptions in the normal flow of speech, including filled pauses (*um*, *uh*), repetitions (*they're ... they're here*), corrections (*to Sydney ... no to Melbourne*), false starts (*we would like ... let's go*), parenthetical asides (*you know*, *I mean*), partial words (*wou-*, *oper-*) and interjections (*well*, *like*). One type of disfluency which is especially problematic for conventional syntactic parsers are speech repairs. A speech repair consists of three main parts; the *reparandum*, the *interregnum* and the *repair*. As illustrated in the example below, the reparandum *we don't* is the part of the utterance that is replaced or repaired, the interregnum *uh I mean* (which consists of a filled pause *uh* and a discourse marker *I mean*) is an optional part of the disfluency, and the repair *a lot of states don't* replaces the reparandum. The fluent version is obtained by removing the reparandum and the interregnum.
 
 <p align="center">
   <img src="img/flat-ex.jpg" width=380 height=120>
 </p>
 
-<div align="justify">We train a joint disfluency detection and constituency parsing model for transcribed speech on Switchboard. In the Switchboard treebank corpus the *reparanda*, *filled pauses* and *discourse markers* are dominated by *EDITED*, *INTJ* and *PRN* nodes, respectively as shown below.  Filled pauses and discourse markers belong to a finite set of words and phrases, so INTJ and PRN nodes are trivial to detect. Detecting EDITED nodes, however, is challenging and is the main focus of disfluency detection models.
+We train a joint disfluency detection and constituency parsing model for transcribed speech on Switchboard. In the Switchboard treebank corpus the *reparanda*, *filled pauses* and *discourse markers* are dominated by *EDITED*, *INTJ* and *PRN* nodes, respectively as shown below.  Filled pauses and discourse markers belong to a finite set of words and phrases, so INTJ and PRN nodes are trivial to detect. Detecting EDITED nodes, however, is challenging and is the main focus of disfluency detection models.
 
 <p align="center">
   <img src="img/tree-ex.jpg" width=600 height=300>
@@ -34,8 +34,8 @@ Joint Disfluency Detection and Constituency Parsing
 
 ### Installation
 ```
-$ git clone https://github.com/pariajm/naacl2019
-$ cd naacl2019/EVALB
+$ git clone https://github.com/pariajm/joint-disfluency-detector-and-parser
+$ cd joint-disfluency-detector-and-parser/EVALB
 $ make evalb
 $ cd .. && mkdir data
 $ cd data
@@ -66,9 +66,9 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 $ python3 src/train_parser.py --config results/best_nopunct_nopw_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 ### Citation
-If you use this model, please cite our paper:
+If you use this model, please cite the following paper:
 ```
-@inproceedings{jamshid-lou-etal-2019-neural,
+@inproceedings{jamshid-lou-2019-neural,
     title = {Neural Constituency Parsing of Speech Transcripts},
     author = {Jamshid Lou, Paria and Wang, Yufei and Johnson, Mark},
     booktitle = {Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)},
