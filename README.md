@@ -4,9 +4,9 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 
 ## Contents
 1. [Task](#task)
-2. [Requirements for Training](#requirement)
+2. [Requirements for Training](#requirements-for-training)
 3. [Preparation](#preparation)
-4. [Pretrained Models (PyTorch)](#pretrained-models-(pyTorch))
+4. [Pre-trained Models (PyTorch)](#pre\-trained-models-\(pyTorch\))
 5. [Using the Trained Models](#using-the-trained-models)
 6. [Training Instructions](#training-instructions)
 7. [Reproducing Experiments](#reproducing-experiments)
@@ -58,7 +58,7 @@ The following pre-trained models, which have been optimized for their performanc
 * [`swbd_elmo_Edev.0.872.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_elmo_Edev.0.872.pt): Our best model trained on the Switchboard gold parse trees with ELMo word representations (EDITED word f-score=87.5%).
 
 ### Using the Trained Models
-Use our trained models to find a constituency parse tree as well as disfluency labels for your own sentences. Befor running the following commands, make sure you follow the steps in [Requirements for Training](#pre-trained-models-(pyTorch)) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
+Use our trained models to find a constituency parse tree as well as disfluency labels for your own sentences. Befor running the following commands, make sure you follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
 
 ```
 $ cd best_models
@@ -68,9 +68,9 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 ```
 
 ### Training Instructions
-A new model can be trained using the followng command:
+A new model can be trained using the followng command:  
 ```
-$ python3 src/train_parser.py --config results/config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ python3 src/train_parser.py --config results/swbd_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
 ### Reproducing Experiments
