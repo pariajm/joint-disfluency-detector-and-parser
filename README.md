@@ -1,6 +1,6 @@
 Joint Disfluency Detection and Constituency Parsing
 ------------------------------------------------------------
-A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019, with additional changes (e.g. self-training and ensembling) as described in [Improving Disfluency Detection by Self-Training a Self-Attentive Model](https://arxiv.org/pdf/2004.05323.pdf).
+A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019, with additional changes (e.g. self-training and ensembling) as described in [Improving Disfluency Detection by Self-Training a Self-Attentive Model](https://arxiv.org/pdf/2004.05323.pdf) from ACL 2020.
 
 ## Contents
 1. [Task](#task)
