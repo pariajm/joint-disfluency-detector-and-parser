@@ -64,6 +64,11 @@ Use the [pre-trained models](#pretrained-models) to find the constituency parse 
 $ cd best_models
 $ wget https://github.com/pariajm/joint-disfluency-detection-and-parsing/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt
 $ cd ..
+$ mkdir model && cd model
+$ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt
+$ wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
+$ unzip uncased_L-12_H-768_A-12.zip && mv uncased_L-12_H-768_A-12/* .
+$ cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
 
@@ -71,7 +76,7 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
   
 ```
-$ python3 src/main.py train --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ python3 src/train_parser.py --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
 ### Reproducing Experiments
