@@ -39,13 +39,12 @@ This repository includes the code used for training a joint disfluency detection
 ```
 $ git clone https://github.com/pariajm/joint-disfluency-detection-and-parsing
 $ cd joint-disfluency-detection-and-parsing/EVALB
-$ make evalb
+$ make evalb 
 $ cd .. 
 ```
 To use ELMo embeddings, follow the additional steps given below:
 ```
-$ mkdir data
-$ cd data
+$ mkdir data && cd data
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
 $ cd ..
@@ -66,9 +65,8 @@ $ wget https://github.com/pariajm/joint-disfluency-detection-and-parsing/release
 $ cd ..
 $ mkdir model && cd model
 $ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt
-$ wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
-$ unzip uncased_L-12_H-768_A-12.zip && mv uncased_L-12_H-768_A-12/* .
-$ cd ..
+$ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz
+$ tar -xf bert/bert-base-uncased.tar.gz && cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
 
