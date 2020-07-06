@@ -684,7 +684,7 @@ def main():
     subparser.add_argument("--epoch1-hurdle", default=0.5, type=float, help="Stop training if epoch 1 efscore less than this value")
     subparser.add_argument("--epoch10-hurdle", default=0.75, type=float, help="Stop training if epoch 10 efscore less than this value")
     subparser.add_argument("--results-path", default=None)
-    subparser.add_argument("--silver-weight", default=5, type=int, help="Weights on using silver data in each training batch") 
+    subparser.add_argument("--silver-weight", default=5, type=int, help="Weights on using silver parse trees in each mini-batch") 
     subparser.add_argument("--train-load-path", required=True)
 
     subparser = subparsers.add_parser("test")
@@ -694,7 +694,6 @@ def main():
     subparser.add_argument("--test-path", default="swbd-data/autopos-nopunct-nopw/test.tx")
     subparser.add_argument("--test-path-raw", type=str)
     subparser.add_argument("--eval-batch-size", type=int, default=100)
-    subparser.add_argument("--eval-silver-weight", default=0, type=int)
 
     subparser = subparsers.add_parser("ensemble")
     subparser.set_defaults(callback=run_ensemble)
@@ -702,7 +701,6 @@ def main():
     subparser.add_argument("--evalb-dir", default="EVALB/")
     subparser.add_argument("--test-path", default="swbd-data/autopos-nopunct-nopw/test.tx")
     subparser.add_argument("--eval-batch-size", type=int, default=100)
-    subparser.add_argument("--eval-silver-weight", default=0, type=int)
 
     subparser = subparsers.add_parser("parse")
     subparser.set_defaults(callback=run_parse)
@@ -710,7 +708,6 @@ def main():
     subparser.add_argument("--input-path", type=str, required=True)
     subparser.add_argument("--output-path", type=str, default="-")
     subparser.add_argument("--eval-batch-size", type=int, default=100)
-    subparser.add_argument("--eval-silver-weight", default=0, type=int)
 
     subparser = subparsers.add_parser("viz")
     subparser.set_defaults(callback=run_viz)
@@ -718,7 +715,6 @@ def main():
     subparser.add_argument("--evalb-dir", default="EVALB/")
     subparser.add_argument("--viz-path", default="data/22.auto.clean")
     subparser.add_argument("--eval-batch-size", type=int, default=100)    
-    subparser.add_argument("--eval-silver-weight", default=0, type=int)
 
     args = parser.parse_args()
     args.callback(args)
