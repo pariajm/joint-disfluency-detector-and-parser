@@ -66,7 +66,7 @@ $ cd ..
 $ mkdir model && cd model
 $ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt
 $ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz
-$ tar -xf bert/bert-base-uncased.tar.gz && cd ..
+$ tar -xf bert-base-uncased.tar.gz && cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
 
