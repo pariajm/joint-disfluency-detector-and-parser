@@ -58,7 +58,7 @@ The following pre-trained models, which have been optimized for their performanc
 * [`swbd_elmo_Edev.0.872.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_elmo_Edev.0.872.pt): Our best model trained on the Switchboard gold parse trees with ELMo word representations (EDITED word f-score=87.5%).
 
 ### Using the Trained Models
-Use the [pre-trained models](#pretrained-models) to find a constituency parse tree as well as disfluency labels for your own sentences. Before running the following commands, make sure to follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
+Use the [pre-trained models](#pretrained-models) to find the constituency parse trees as well as disfluency labels for your own sentences. Before running the following commands, make sure to follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
 
 ```
 $ cd best_models
@@ -68,7 +68,7 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 ```
 
 ### Training Instructions
-First, obtain silver parse trees for your unlabelled data by running the commands given [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
+First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
   
 ```
 $ python3 src/main.py train --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
@@ -99,7 +99,7 @@ If you use this model, please cite the following papers:
     title = "Improving Disfluency Detection by Self-Training a Self-Attentive Model",
     author = "Jamshid Lou, Paria and Johnson, Mark",
     booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
-    month = jul,
+    month = "jul",
     year = "2020",
     address = "Online",
     publisher = "Association for Computational Linguistics",
