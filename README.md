@@ -1,6 +1,6 @@
 Joint Disfluency Detection and Constituency Parsing
 ------------------------------------------------------------
-A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019, with additional changes (e.g. self-training and ensembling) as described in [Improving Disfluency Detection by Self-Training a Self-Attentive Model](https://arxiv.org/pdf/2004.05323.pdf) from ACL 2020.
+A joint disfluency detection and constituency parsing model for transcribed speech based on [Neural Constituency Parsing of Speech Transcripts](https://www.aclweb.org/anthology/N19-1282) from NAACL 2019, with additional changes (e.g. self-training and ensembling) as described in [Improving Disfluency Detection by Self-Training a Self-Attentive Model](https://www.aclweb.org/anthology/2020.acl-main.346/) from ACL 2020.
 
 ## Contents
 1. [Task](#task)
@@ -58,7 +58,7 @@ The following pre-trained models, which have been optimized for their performanc
 * [`swbd_elmo_Edev.0.872.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_elmo_Edev.0.872.pt): Our best model trained on the Switchboard gold parse trees with ELMo word representations (EDITED word f-score=87.5%).
 
 ### Using the Trained Models
-Use our trained models to find a constituency parse tree as well as disfluency labels for your own sentences. Befor running the following commands, make sure you follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
+Use the [pre-trained models](#pretrained-models) to find a constituency parse tree as well as disfluency labels for your own sentences. Before running the following commands, make sure to follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
 
 ```
 $ cd best_models
@@ -68,9 +68,10 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 ```
 
 ### Training Instructions
-A new model can be trained using the followng command:  
+First, obtain silver parse trees for your unlabelled data by running the commands given [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
+  
 ```
-$ python3 src/train_parser.py --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
+$ python3 src/main.py train --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
 ### Reproducing Experiments
@@ -80,26 +81,30 @@ The code used for our NAACL 2019 paper is tagged `naacl2019` in git. The version
 If you use this model, please cite the following papers:
 ```
 @inproceedings{jamshid-lou-2019-neural,
-    title = {Neural Constituency Parsing of Speech Transcripts},
-    author = {Jamshid Lou, Paria and Wang, Yufei and Johnson, Mark},
-    booktitle = {Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)},
-    month = {June},
-    year = {2019},
-    address = {Minneapolis, Minnesota},
-    publisher = {Association for Computational Linguistics},
-    url = {https://www.aclweb.org/anthology/N19-1282},
-    doi = {10.18653/v1/N19-1282},
-    pages = {2756--2765}
+    title = "Neural Constituency Parsing of Speech Transcripts",
+    author = "Jamshid Lou, Paria and Wang, Yufei and Johnson, Mark",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = "June",
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/N19-1282",
+    doi = "10.18653/v1/N19-1282",
+    pages = "2756--2765"
 }
 ```
 
 ```
-@inproceedings{jamshid-lou-2020-neural,
-    title = {Improving Disfluency Detection by Self-Training a Self-Attentive Model},
-    author = {Jamshid Lou, Paria and Johnson, Mark},
-    booktitle = {arXiv preprint arXiv:2004.05323v1},
-    year = {2020},
-    url = {https://arxiv.org/pdf/2004.05323.pdf}
+@inproceedings{jamshid-lou-2020-improving,
+    title = "Improving Disfluency Detection by Self-Training a Self-Attentive Model",
+    author = "Jamshid Lou, Paria and Johnson, Mark",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.346",
+    pages = "3754--3763"
 }
 ```
 
