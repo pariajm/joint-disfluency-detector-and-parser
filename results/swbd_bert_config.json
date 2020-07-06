@@ -2,7 +2,7 @@
   "attention_dropout": 0.2,
   "batch_size": 30,
   "bert_do_lower_case": true,
-  "bert_model": "model/bert-base-uncased.tar.gz",
+  "bert_model": "bert-base-uncased",
   "char_lstm_input_dropout": 0.2,
   "checks_per_epoch": 4,
   "clip_grad_norm": 0,
