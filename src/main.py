@@ -85,8 +85,6 @@ def make_hparams():
         bert_model="bert-base-uncased",
         bert_do_lower_case=True,
         bert_transliterate="",
-  
-        silver_weight = 0.5,
         )
 
 def run_train(args, hparams):
@@ -684,7 +682,7 @@ def main():
     subparser.add_argument("--epoch1-hurdle", default=0.5, type=float, help="Stop training if epoch 1 efscore less than this value")
     subparser.add_argument("--epoch10-hurdle", default=0.75, type=float, help="Stop training if epoch 10 efscore less than this value")
     subparser.add_argument("--results-path", default=None)
-    subparser.add_argument("--silver-weight", default=5, type=int, help="Weights on using silver parse trees in each mini-batch") 
+    subparser.add_argument("--silver-weight", default=4, type=int, help="Weights on using silver parse trees in each mini-batch") 
     subparser.add_argument("--train-load-path", required=True)
 
     subparser = subparsers.add_parser("test")
