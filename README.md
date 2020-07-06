@@ -37,8 +37,8 @@ This repository includes the code used for training a joint disfluency detection
 
 ### Preparation
 ```
-$ git clone https://github.com/pariajm/joint-disfluency-detector-and-parser
-$ cd joint-disfluency-detector-and-parser/EVALB
+$ git clone https://github.com/pariajm/joint-disfluency-detection-and-parsing
+$ cd joint-disfluency-detection-and-parsing/EVALB
 $ make evalb
 $ cd .. 
 ```
@@ -62,7 +62,7 @@ Use our trained models to find a constituency parse tree as well as disfluency l
 
 ```
 $ cd best_models
-$ wget https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt
+$ wget https://github.com/pariajm/joint-disfluency-detection-and-parsing/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt
 $ cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
