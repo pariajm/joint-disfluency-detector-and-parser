@@ -7,12 +7,13 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 2. [Requirements for Training](#requirements-for-training)
 3. [Preparation](#preparation)
 4. [Pretrained Models](#pretrained-models)
-5. [Using the Trained Models](#using-the-trained-models)
-6. [Training Instructions](#training-instructions)
-7. [Reproducing Experiments](#reproducing-experiments)
-8. [Citation](#citation)
-9. [Contact](#contact)
-10. [Credits](#credits)
+5. [Using the Trained Models for Parsing](#using-the-trained-models)
+6. [Using the Trained Models for Disfluency Tagging](#using-the-dys)
+7. [Training Instructions](#training-instructions)
+8. [Reproducing Experiments](#reproducing-experiments)
+9. [Citation](#citation)
+10. [Contact](#contact)
+11. [Credits](#credits)
 
 ### Task
 Disfluency refers to any interruptions in the normal flow of speech, including filled pauses (*um*, *uh*), repetitions (*they're ... they're here*), corrections (*to Sydney ... no to Melbourne*), false starts (*we would like ... let's go*), parenthetical asides (*you know*, *I mean*), partial words (*wou-*, *oper-*) and interjections (*well*, *like*). One type of disfluency which is especially problematic for conventional syntactic parsers are speech repairs. A speech repair consists of three main parts; the *reparandum*, the *interregnum* and the *repair*. As illustrated in the example below, the reparandum *we don't* is the part of the utterance that is replaced or repaired, the interregnum *uh I mean* (which consists of a filled pause *uh* and a discourse marker *I mean*) is an optional part of the disfluency, and the repair *a lot of states don't* replaces the reparandum. The fluent version is obtained by removing the reparandum and the interregnum.
@@ -56,7 +57,7 @@ The following pre-trained models, which have been optimized for their performanc
 * [`swbd_elmo_tree_transformation_Edev.0.8838.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_elmo_tree_transformation_Edev.0.8838.pt): Our best model trained on the tree transformed Switchboard gold parse trees (as described in Section 4.4 [here](https://www.aclweb.org/anthology/N19-1282)) with ELMo word representations (EDITED word f-score=88.7%).
 * [`swbd_elmo_Edev.0.872.pt`](https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_elmo_Edev.0.872.pt): Our best model trained on the Switchboard gold parse trees with ELMo word representations (EDITED word f-score=87.5%).
 
-### Using the Trained Models
+### Using the Trained Models for Parsing 
 Use the [pre-trained models](#pretrained-models) to find the constituency parse trees as well as disfluency labels for your own sentences. Before running the following commands, make sure to follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
 
 ```
@@ -69,6 +70,8 @@ $ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar
 $ tar -xf bert-base-uncased.tar.gz && cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
+### Using the Trained Models for Disfluency Tagging
+If you want to use the trained models to disfluency label your own data, check [here](https://github.com/pariajm/fisher-annotations), please!
 
 ### Training Instructions
 First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
