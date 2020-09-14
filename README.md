@@ -7,8 +7,8 @@ A joint disfluency detection and constituency parsing model for transcribed spee
 2. [Requirements for Training](#requirements-for-training)
 3. [Preparation](#preparation)
 4. [Pretrained Models](#pretrained-models)
-5. [Using the Trained Models for Parsing](#using-the-trained-models)
-6. [Using the Trained Models for Disfluency Tagging](#using-the-dys)
+5. [Using the Trained Models for Parsing](#using-the-trained-models-for-parsing)
+6. [Using the Trained Models for Disfluency Tagging](#using-the-trained-models-for-disfluency-tagging)
 7. [Training Instructions](#training-instructions)
 8. [Reproducing Experiments](#reproducing-experiments)
 9. [Citation](#citation)
@@ -74,7 +74,7 @@ $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-
 If you want to use the trained models to disfluency label your own data, check [here](https://github.com/pariajm/fisher-annotations), please!
 
 ### Training Instructions
-First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
+First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models-for-parsing). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
   
 ```
 $ python3 src/train_parser.py --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
