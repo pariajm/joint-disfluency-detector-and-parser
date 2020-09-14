@@ -71,7 +71,7 @@ $ tar -xf bert-base-uncased.tar.gz && cd ..
 $ python3 src/main.py parse --input-path best_models/raw_sentences.txt --output-path best_models/parsed_sentences.txt --model-path-base best_models/swbd_fisher_bert_Edev.0.9078.pt >best_models/out.log
 ```
 ### Using the Trained Models for Disfluency Tagging
-If you want to use the trained models to disfluency label your own data, check [here](https://github.com/pariajm/fisher-annotations), please!
+If you want to use the trained models to disfluency label your own data, check [here](https://github.com/pariajm/fisher-annotations).
 
 ### Training Instructions
 First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models-for-parsing). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
