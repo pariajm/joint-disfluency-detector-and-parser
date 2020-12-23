@@ -37,14 +37,16 @@ This repository includes the code used for training a joint disfluency detection
 * [pytorch-pretrained-bert](https://github.com/huggingface/pytorch-pretrained-BERT) 0.4.0 or any compatible version (only required when using BERT word representations)
 
 ### Preparation
-```
-$ git clone https://github.com/pariajm/joint-disfluency-detection-and-parsing
-$ cd joint-disfluency-detection-and-parsing/EVALB
+```bash
+$ git clone https://github.com/pariajm/joint-disfluency-detector-and-parser
+$ cd joint-disfluency-detector-and-parser/EVALB
 $ make evalb 
 $ cd .. 
 ```
+
 To use ELMo embeddings, follow the additional steps given below:
-```
+
+```bash
 $ mkdir data && cd data
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json
 $ wget https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
@@ -60,9 +62,9 @@ The following pre-trained models, which have been optimized for their performanc
 ### Using the Trained Models for Parsing 
 Use the [pre-trained models](#pretrained-models) to find the constituency parse trees as well as disfluency labels for your own sentences. Before running the following commands, make sure to follow the steps in [Requirements for Training](#requirements-for-training) and [Preparation](#preparation) first. The format of the input in `best_models/raw_sentences.txt` is one sentence per line. For the best performance, remove punctuations and split clitics ("I 'm" instead of "I'm"). 
 
-```
+```bash
 $ cd best_models
-$ wget https://github.com/pariajm/joint-disfluency-detection-and-parsing/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt
+$ wget https://github.com/pariajm/joint-disfluency-detector-and-parser/releases/download/naacl2019/swbd_fisher_bert_Edev.0.9078.pt
 $ cd ..
 $ mkdir model && cd model
 $ wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt
@@ -76,7 +78,7 @@ If you want to use the trained models to disfluency label your own data, check [
 ### Training Instructions
 First, obtain silver parse trees for your unlabelled data by running the commands given in [here](#using-the-trained-models-for-parsing). Then, you can train a new model on the enlarged training set (gold + silver parse trees) using the following command:
   
-```
+```bash
 $ python3 src/train_parser.py --config results/swbd_fisher_bert_config.json --eval-path results/eval.txt >results/out_and_error.txt
 ```
 
